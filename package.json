@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
+    "@emoji-mart/data": "^1.1.1",
+    "@emoji-mart/react": "^1.1.1",
     "@headlessui/react": "^1.7.7",
+    "@heroicons/react": "^1.0.6",
     "@next/font": "13.1.1",
     "emoji-mart": "^3.0.1",
+    "emoji-picker-react": "^4.4.7",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
     "firebase": "^9.15.0",

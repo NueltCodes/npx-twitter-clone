@@ -6,8 +6,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import React, { useRef, useState } from "react";
-import { Picker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
+import Picker from "emoji-picker-react";
 import { db, storage } from "../firebaseConfig";
 import {
   addDoc,
@@ -28,13 +27,19 @@ function Input() {
 
   const { data: session } = useSession();
 
-  const addEmoji = (e) => {
-    let sym = e.unified.split("-");
-    let codesArray = [];
-    sym.forEach((el) => codesArray.push("0x" + el));
-    let emoji = String.fromCodePoint(...codesArray);
-    setInput(input + emoji);
+  const onEmojiClick = (emojiObject) => {
+    setInput((prevInput) => prevInput + emojiObject.emoji);
+    // setShowEmojis(false);
   };
+
+  // This below commented out function another way to add emojis from the npm-emoji-mart to inputs.
+  // const addEmoji = (e) => {
+  //   let sym = e.unified.split("-");
+  //   let codesArray = [];
+  //   sym.forEach((el) => codesArray.push("0x" + el));
+  //   let emoji = String.fromCodePoint(...codesArray);
+  //   setInput(input + emoji);
+  // };
 
   // This function is used to create a users post and store on the backend, where by the Image uploaded, text, id, username, the time when the post was made and all is been created and stored to the backend
   const sendPost = async () => {
@@ -141,18 +146,15 @@ function Input() {
               <div className="icon">
                 <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
               </div>
+
               {showEmojis && (
-                <Picker
-                  onSelect={addEmoji}
-                  style={{
-                    position: "absolute",
-                    marginTop: "465px",
-                    marginLeft: -40,
-                    maxWidth: "320px",
-                    borderRadius: "20px",
-                  }}
-                  theme="dark"
-                />
+                <div className="z-[100px] mt-[485px] absolute max-w-[320px] border-r-[20px] -mr-10">
+                  <Picker
+                    // data={data}
+                    onEmojiClick={onEmojiClick}
+                    theme="dark"
+                  />
+                </div>
               )}
             </div>
             <button

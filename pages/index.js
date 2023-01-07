@@ -26,7 +26,7 @@ export default function Home({ newsResults, randomUsersResults, providers }) {
         <Feed newsResults={newsResults.articles} />
         <Widget
           newsResults={newsResults.articles}
-          randomUsersResults={randomUsersResults?.results || null}
+          // randomUsersResults={randomUsersResults?.results || null}
         />
         {isOpen && <Modal />}
       </main>{" "}
@@ -38,18 +38,18 @@ export async function getServerSideProps(context) {
   const newsResults = await fetch(
     "https://saurav.tech/NewsAPI/top-headlines/category/business/us.json"
   ).then((res) => res.json());
-  // Who to follow section
-  let randomUsersResults = [];
+  // // Who to follow section
+  // let randomUsersResults = [];
 
-  try {
-    const res = await fetch(
-      "https://randomuser.me/api/?results=30&inc=name,login,picture"
-    );
+  // try {
+  //   const res = await fetch(
+  //     "https://randomuser.me/api/?results=30&inc=name,login,picture"
+  //   );
 
-    randomUsersResults = await res.json();
-  } catch (e) {
-    randomUsersResults = [];
-  }
+  //   randomUsersResults = await res.json();
+  // } catch (e) {
+  //   randomUsersResults = [];
+  // }
 
   const providers = await getProviders();
   const session = await getSession(context);
@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       newsResults,
-      randomUsersResults,
+      // randomUsersResults,
       providers,
       session,
     },

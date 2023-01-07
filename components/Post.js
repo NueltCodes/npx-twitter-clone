@@ -146,17 +146,21 @@ function Post({ id, post, postPage }) {
         )}
         {postPage && (
           <img
-            src={post?.image}
+            src={post?.image ? post?.image : null}
             alt="Posts"
-            className="rounded-2xl max-h-[300px] object-cover mr-2"
+            className={`${
+              !post?.image && "hidden"
+            } rounded-2xl max-h-[600px] object-cover mr-2`}
           />
         )}
 
         {!postPage && (
           <img
-            src={post?.image}
+            src={post?.image ? post?.image : null}
             alt="Posts"
-            className="rounded-2xl max-h-[600px] object-cover mr-2"
+            className={`${
+              !post?.image && "hidden"
+            } rounded-2xl max-h-[600px] object-cover mr-2`}
           />
         )}
 

@@ -1,11 +1,10 @@
 import { SearchIcon } from "@heroicons/react/outline";
 // import Trending from "./Trending";
-import Image from "next/legacy/image";
 import { useState } from "react";
 import News from "./News";
-import { AnimatePresence, motion } from "framer-motion";
+// import { AnimatePresence, motion } from "framer-motion";
 
-function Widget({ newsResults, randomUsersResults }) {
+function Widget({ newsResults }) {
   const [articleNumber, setArticleNumber] = useState(3);
   // const [randomUserNum, setRandomUserNum] = useState(3);
   const [minDisplays, setMinDisplays] = useState(false);

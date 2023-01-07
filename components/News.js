@@ -4,7 +4,7 @@ import React from "react";
 function News({ article }) {
   return (
     <div>
-      <a href={article.url} target="_blank">
+      <a href={article.url} target="_blank" rel="noreferrer">
         <div className="hover:bg-white hover:bg-opacity-[0.07] px-4 py-2 cursor-pointer transition duration-300 ease-out flex items-center justify-between">
           <div className="space-y-0.5">
             <p className="text-[#b0b2b3] text-xs pr-4 font-medium">

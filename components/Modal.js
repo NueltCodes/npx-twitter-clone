@@ -20,8 +20,6 @@ import {
 } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import Moment from "react-moment";
-import { Picker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
 
 function Modal() {
   const { data: session } = useSession();

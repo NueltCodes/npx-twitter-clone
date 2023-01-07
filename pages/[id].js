@@ -18,6 +18,7 @@ import { db } from "../firebaseConfig";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Comment from "../components/Comment";
 import Head from "next/head";
+import Login from "../components/Login";
 
 function PostPage({ newsResults, randomUsersResults, providers }) {
   const { data: session } = useSession();
@@ -53,7 +54,7 @@ function PostPage({ newsResults, randomUsersResults, providers }) {
     <div>
       <Head>
         <title>
-          {post?.username} on Twitter: "{post?.text}"
+          {post?.username} on Twitter: &quot;{post?.text}&quot;
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

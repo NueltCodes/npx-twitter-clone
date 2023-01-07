@@ -94,8 +94,8 @@ const Feed = ({ newsResults }) => {
 
       {showFeeds && (
         <div className="text-[#d9d9d9] sm:hidden space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
-          <h4 className="font-bold text-xl px-4">What's happening</h4>
-          {newsResults.slice(0, articleNumber).map((article, index) => (
+          <h4 className="font-bold text-xl px-4">What&apos;s happening</h4>
+          {newsResults.slice(0, articleNumber).map((article) => (
             <News key={article.title} article={article} />
           ))}
 

@@ -12,18 +12,8 @@ function Widget({ newsResults }) {
   const hideFew = () => {
     if (articleNumber > 3) {
       setArticleNumber(articleNumber - 3);
-    } else {
-      if (articleNumber === 3) {
-        setMinDisplays(true);
-      }
+      // setMinDisplays(true);
     }
-  };
-
-  const showfew = () => {
-    if (articleNumber === 3) {
-      setArticleNumber(articleNumber + 3);
-    }
-    setMinDisplays(false);
   };
 
   return (
@@ -41,12 +31,12 @@ function Widget({ newsResults }) {
 
       <div className="text-[#d9d9d9] sticky top-16 space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
         <h4 className="font-bold text-xl px-4">What&apos;s happening</h4>
-        {newsResults.slice(0, articleNumber).map((article) => (
+        {newsResults?.slice(0, articleNumber).map((article) => (
           <News key={article.title} article={article} />
         ))}
         <div className="flex items-center justify-center w-auto">
           <button
-            onClick={showfew}
+            onClick={() => setArticleNumber(articleNumber + 3)}
             className="hover:bg-white hover:bg-opacity-[0.06] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between w-full text-[#1d9bf0] font-light"
           >
             Show more
@@ -59,9 +49,9 @@ function Widget({ newsResults }) {
             hide few
           </button>
         </div>
-        {minDisplays && (
-          <div className="text-red-400 flex justify-center items-center pb-4 cursor-pointer">
-            you have reached the least of latest happenings
+        {articleNumber === 3 && (
+          <div className="text-blue-400 bg-slate-800 flex justify-center items-center p-4 cursor-pointer">
+            Business News
           </div>
         )}
       </div>

@@ -21,7 +21,12 @@ import Head from "next/head";
 import Login from "../components/Login";
 
 function PostPage({ newsResults, randomUsersResults, providers }) {
-  const { data: session } = useSession();
+  const { status, data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/auth/login");
+    },
+  });
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);

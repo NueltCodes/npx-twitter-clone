@@ -90,7 +90,7 @@ function Input() {
       }`}
     >
       <img
-        src={session.user.image}
+        src={session?.user?.image}
         alt="Profile Image"
         className="h-11 w-11 rounded-full"
       />

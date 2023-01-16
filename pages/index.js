@@ -8,9 +8,16 @@ import Login from "../components/Login";
 import Modal from "../components/Modal";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modalAtom";
+import { useRouter } from "next/router";
 
 export default function Home({ newsResults, randomUsersResults, providers }) {
-  const { data: session, status } = useSession();
+  const router = useRouter();
+  const { status, data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/auth/login");
+    },
+  });
   const [isOpen, setIsOpen] = useRecoilState(modalState);
 
   if (!session) return <Login providers={providers} />;
@@ -63,5 +70,3 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
-// https://saurav.tech/NewsAPI/top-headlines/category/business/us.json

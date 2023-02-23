@@ -1,5 +1,5 @@
 import { getProviders, signIn, useSession } from "next-auth/react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

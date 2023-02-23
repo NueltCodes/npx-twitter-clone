@@ -1,4 +1,3 @@
-import Image from "next/legacy/image";
 import { HomeIcon } from "@heroicons/react/solid";
 import {
   HashtagIcon,
@@ -25,8 +24,8 @@ function Sidebar({ showMenu }) {
       }  sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full`}
     >
       <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
-        <Image
-          src="https://rb.gy/ogau5a"
+        <img
+          src="https://icon-library.com/images/twitter-icon-black-background/twitter-icon-black-background-17.jpg"
           width={30}
           height={30}
           alt="Logo"

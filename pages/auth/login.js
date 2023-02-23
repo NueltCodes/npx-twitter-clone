@@ -19,6 +19,7 @@ function Login({ providers }) {
         width={150}
         height={150}
         objectfit="contain"
+        className='rounded-full'
       />
 
       <div>
